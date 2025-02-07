@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nasi Lemak</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Nasi Lemak Recipe</h1>
+
+  <!-- Image Box -->
+  <div class="image-box">
+    <img src="nasilemak.jpg" alt="Nasi Lemak">
+  </div>
+
+  <!-- Ingredient Table -->
+  <table class="ingredient-table">
+    <thead>
+      <tr>
+        <th>Ingredient</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Rice (uncooked)</td>
+        <td><span id="rice">2.00</span> cups</td>
+      </tr>
+      <tr>
+        <td>Coconut milk</td>
+        <td><span id="coconut">1.00</span> cup</td>
+      </tr>
+      <tr>
+        <td>Water</td>
+        <td><span id="water">1.00</span> cup</td>
+      </tr>
+      <tr>
+        <td>Pandan leaves</td>
+        <td><span id="pandan">2.00</span> leaves</td>
+      </tr>
+      <tr>
+        <td>Salt</td>
+        <td><span id="salt">0.50</span> tsp</td>
+      </tr>
+      <tr>
+        <td>Sambal (prepared)</td>
+        <td><span id="sambal">1.00</span> cup</td>
+      </tr>
+      <tr>
+        <td>Dried anchovies</td>
+        <td><span id="anchovies">0.50</span> cup</td>
+      </tr>
+      <tr>
+        <td>Roasted peanuts</td>
+        <td><span id="peanuts">0.50</span> cup</td>
+      </tr>
+      <tr>
+        <td>Hard-boiled eggs</td>
+        <td><span id="eggs">2.00</span> eggs</td>
+      </tr>
+      <tr>
+        <td>Cucumber slices</td>
+        <td><span id="cucumber">0.50</span> cucumber</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Ingredient Gallery -->
+  <div class="ingredient-gallery">
+    <img src="rice.jpg" alt="Rice">
+    <img src="coconutmilk.jpg" alt="Coconut Milk">
+    <img src="water.jpg" alt="Water">
+    <img src="pandan.jpg" alt="Pandan Leaves">
+    <img src="salt.jpg" alt="Salt">
+    <img src="sambal.jpg" alt="Sambal">
+    <img src="anchovies.jpg" alt="Dried Anchovies">
+    <img src="peanut.jpg" alt="Roasted Peanuts">
+    <img src="eggs.jpg" alt="Hard-boiled Eggs">
+    <img src="cucumber.jpg" alt="Cucumber Slices">
+  </div>
+
+  <!-- Quantity Input -->
+  <div class="quantity-input">
+    <label for="quantity">Number of servings:</label>
+    <input type="number" id="quantity" value="1" min="1">
+    <button onclick="adjustIngredients()">Adjust</button>
+    <button onclick="clearIngredients()" class="clear-button">Clear</button>
+    <p class="error" id="error-message"></p>
+  </div>
+
+  <!-- Cooking Instructions -->
+  <div class="instructions">
+    <h2>Cooking Instructions</h2>
+    <ol>
+      <li><strong>Rinse the rice:</strong> Rinse the rice thoroughly until the water runs clear.</li>
+      <li><strong>Cook the rice:</strong> In a rice cooker or pot, combine the rice, coconut milk, water, salt, and pandan leaves. Cook until the rice is fluffy.</li>
+      <li><strong>Prepare the sambal:</strong> Blend dried chilies, shallots, garlic, and tamarind paste. Sauté the mixture in oil until fragrant and the oil starts to separate.</li>
+      <li><strong>Fry anchovies:</strong> Fry the dried anchovies until crispy.</li>
+      <li><strong>Plate and serve:</strong> Serve a portion of rice with a generous serving of sambal, topped with crispy anchovies, roasted peanuts, halved hard‐boiled eggs, and cucumber slices on the side.</li>
+      <li><strong>Enjoy:</strong> Relish your authentic Malaysian nasi lemak!</li>
+    </ol>
+  </div>
+
+  <!-- Back to Home Button -->
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="index.html" class="btn">Back to Home</a>
+  </div>
+
+  <script>
+    // Default ingredient amounts for Nasi Lemak
+    const defaultIngredients = {
+      rice: 2.00,
+      coconut: 1.00,
+      water: 1.00,
+      pandan: 2.00,
+      salt: 0.50,
+      sambal: 1.00,
+      anchovies: 0.50,
+      peanuts: 0.50,
+      eggs: 2.00,
+      cucumber: 0.50,
+    };
+
+    // Function to adjust ingredient amounts based on servings
+    function adjustIngredients() {
+      const quantityInput = document.getElementById('quantity');
+      const errorMessage = document.getElementById('error-message');
+      const quantity = parseFloat(quantityInput.value);
+
+      // Validate input
+      if (isNaN(quantity) || quantity <= 0) {
+        errorMessage.textContent = 'Please enter a valid number greater than 0.';
+        return;
+      } else {
+        errorMessage.textContent = '';
+      }
+
+      // Update ingredient amounts
+      for (const ingredient in defaultIngredients) {
+        const adjustedAmount = defaultIngredients[ingredient] * quantity;
+        document.getElementById(ingredient).textContent = Math.round(adjustedAmount);
+      }
+    }
+
+    // Function to reset ingredient amounts
+    function clearIngredients() {
+      document.getElementById('quantity').value = 1;
+      for (const ingredient in defaultIngredients) {
+        // Show the default amounts (no more .toFixed(2))
+        document.getElementById(ingredient).textContent = defaultIngredients[ingredient];
+      }
+      document.getElementById('error-message').textContent = '';
+    }
+  </script>
+</body>
+</html>

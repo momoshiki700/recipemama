@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recipes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #4ca1af, #c4e0e5);
+      color: #222;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 { 
+      color: #222;
+      margin-bottom: 20px;
+    }
+    .recipes {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .recipe {
+      background: #fff;
+      color: #222;
+      padding: 15px;
+      border-radius: 10px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .recipe:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    .recipe img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    @media (max-width: 600px) { 
+      .recipes { flex-direction: column; align-items: center; } 
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to My Favourite Recipes</h1>
+  <div class="recipes">
+    <div class="recipe" data-name="cookies">
+      <a href="recipe1.html"><img src="cookies.jpg" alt="Cookies"></a>
+      <p>Chocolate Chip Cookies</p>
+    </div>
+    <div class="recipe" data-name="nasi lemak">
+      <a href="recipe2.html"><img src="nasilemak.jpg" alt="Nasi Lemak"></a>
+      <p>Nasi Lemak</p>
+    </div>
+    <div class="recipe" data-name="english breakfast">
+      <a href="recipe3.html"><img src="englishbreakfast.jpg" alt="Breakfast"></a>
+      <p>English Breakfast</p>
+    </div>
+  </div>
+</body>
+</html>

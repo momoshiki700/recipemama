@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>English Breakfast</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>English Breakfast Recipe</h1>
+
+  <!-- Image Box -->
+  <div class="image-box">
+    <img src="englishbreakfast.jpg" alt="English Breakfast">
+  </div>
+
+  <!-- Ingredient Table -->
+  <table class="ingredient-table">
+    <thead>
+      <tr>
+        <th>Ingredient</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Eggs</td>
+        <td><span id="eggs">2.00</span> pcs</td>
+      </tr>
+      <tr>
+        <td>Bacon</td>
+        <td><span id="bacon">2.00</span> slices</td>
+      </tr>
+      <tr>
+        <td>Sausages</td>
+        <td><span id="sausages">2.00</span> pcs</td>
+      </tr>
+      <tr>
+        <td>Baked beans</td>
+        <td><span id="beans">0.50</span> cup</td>
+      </tr>
+      <tr>
+        <td>Tomatoes</td>
+        <td><span id="tomatoes">1.00</span> whole</td>
+      </tr>
+      <tr>
+        <td>Mushrooms</td>
+        <td><span id="mushrooms">0.50</span> cup</td>
+      </tr>
+      <tr>
+        <td>Toast</td>
+        <td><span id="toast">2.00</span> slices</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Ingredient Gallery -->
+  <div class="ingredient-gallery">
+    <img src="eggs.jpg" alt="Eggs">
+    <img src="bacn.jpg" alt="Bacon">
+    <img src="sausages.jpg" alt="Sausages">
+    <img src="beans.jpg" alt="Baked Beans">
+    <img src="tomatoes.jpg" alt="Tomatoes">
+    <img src="mushroom.jpg" alt="Mushrooms">
+    <img src="toast.jpg" alt="Toast">
+  </div>
+
+  <!-- Quantity Input -->
+  <div class="quantity-input">
+    <label for="quantity">Number of servings:</label>
+    <input type="number" id="quantity" value="1" min="1">
+    <button onclick="adjustIngredients()">Adjust</button>
+    <button onclick="clearIngredients()" class="clear-button">Clear</button>
+    <p class="error" id="error-message"></p>
+  </div>
+
+  <!-- Cooking Instructions -->
+  <div class="instructions">
+    <h2>Cooking Instructions</h2>
+    <ol>
+      <li><strong>Cook the eggs:</strong> Fry the eggs to your preference (sunny side up, over-easy, etc.).</li>
+      <li><strong>Prepare the bacon and sausages:</strong> Fry the bacon until crisp and cook the sausages until thoroughly done.</li>
+      <li><strong>Heat the beans:</strong> Warm the baked beans in a small saucepan.</li>
+      <li><strong>Sauté veggies:</strong> Lightly sauté the tomatoes (halved) and mushrooms.</li>
+      <li><strong>Toast:</strong> Toast the bread slices until golden brown.</li>
+      <li><strong>Assemble:</strong> Arrange all components on a plate for a hearty serving.</li>
+      <li><strong>Enjoy:</strong> Savor your traditional English breakfast!</li>
+    </ol>
+  </div>
+
+  <!-- Back to Home Button -->
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="index.html" class="btn">Back to Home</a>
+  </div>
+
+  <script>
+    // Default ingredient amounts for English Breakfast
+    const defaultIngredients = {
+      eggs: 2.00,
+      bacon: 2.00,
+      sausages: 2.00,
+      beans: 0.50,
+      tomatoes: 1.00,
+      mushrooms: 0.50,
+      toast: 2.00,
+    };
+
+    // Function to adjust ingredient amounts based on servings
+    function adjustIngredients() {
+      const quantityInput = document.getElementById('quantity');
+      const errorMessage = document.getElementById('error-message');
+      const quantity = parseFloat(quantityInput.value);
+
+      // Validate input
+      if (isNaN(quantity) || quantity <= 0) {
+        errorMessage.textContent = 'Please enter a valid number greater than 0.';
+        return;
+      } else {
+        errorMessage.textContent = '';
+      }
+
+      // Update ingredient amounts
+      for (const ingredient in defaultIngredients) {
+        const adjustedAmount = defaultIngredients[ingredient] * quantity;
+        document.getElementById(ingredient).textContent = Math.round(adjustedAmount);
+      }
+    }
+
+    // Function to reset ingredient amounts
+    function clearIngredients() {
+      document.getElementById('quantity').value = 1;
+      for (const ingredient in defaultIngredients) {
+        // Show the default amounts (no more .toFixed(2))
+        document.getElementById(ingredient).textContent = defaultIngredients[ingredient];
+      }
+      document.getElementById('error-message').textContent = '';
+    }
+  </script>
+</body>
+</html>

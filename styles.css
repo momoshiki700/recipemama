@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #4ca1af, #c4e0e5);
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  h1 {
+    color: #333;
+    text-align: center;
+  }
+  .image-box {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .image-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .ingredient-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .ingredient-gallery img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .ingredient-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .ingredient-table th, .ingredient-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  .ingredient-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  .quantity-input {
+    margin: 20px 0;
+    text-align: center;
+  }
+  .quantity-input label {
+    font-weight: bold;
+  }
+  .quantity-input input {
+    padding: 5px;
+    font-size: 16px;
+    width: 100px;
+  }
+  .quantity-input button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  .quantity-input button:hover {
+    background-color: #0056b3;
+  }
+  .clear-button {
+    background-color: #dc3545;
+  }
+  .clear-button:hover {
+    background-color: #c82333;
+  }
+  .error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+  }
+  .instructions {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .instructions h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  .instructions ol {
+    padding-left: 20px;
+  }
+  .instructions li {
+    margin: 10px 0;
+    line-height: 1.6;
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+  }
+  .btn:hover { background: #0056b3; }
